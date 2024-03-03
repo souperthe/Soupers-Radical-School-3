@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/scripts/HUD.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/handhud/idle.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/circle.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
+[node name="HUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Viewmodel" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="sprite" type="AnimatedSprite" parent="Viewmodel"]
+position = Vector2( 746, 588 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 1 )
+animation = "idle"
+
+[node name="Circle" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 480, 360 )
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 3 )
