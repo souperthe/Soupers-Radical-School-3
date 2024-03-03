@@ -13,6 +13,13 @@ var maxangle = 90
 var minangle = -80
 var movespeed = 0.15
 var gravity = 0.02
+onready var headogpos = $head.translation
+var moving = false
+var jumping = false
+var canjump = true
+var canmove = true
+var grounded = true
+var running = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -30,23 +37,40 @@ func _process(delta):
 
 
 func _physics_process(delta):
+	$HUDLayer/HUD/Viewmodel.moving = moving
+	$HUDLayer/HUD/Viewmodel.running = running
+	grounded = is_on_floor()
 	head.rotation_degrees.x = look_rot.x
 	rotation_degrees.y = look_rot.y
-	
+	camerabobbing()
 	move_dir = Vector3(key_sright - key_sleft, 0, key_sdown - key_sup).normalized().rotated(Vector3.UP, rotation.y)
-	velocity.x = float(move_dir.x * movespeed)
-	velocity.z = float(move_dir.z * movespeed)
+	if canmove:
+		velocity.x = float(move_dir.x * movespeed)
+		velocity.z = float(move_dir.z * movespeed)
 	if not is_on_floor():
 		velocity.y -= gravity
+		if grounded:
+			velocity.y = 0
+	if is_on_floor():
+		if jumping == true:
+			$step.play()
+			jumping = false
+			velocity.y = 0
 	#if is_on_floor():
 	#gravity = 0
 	if key_run:
-		movespeed = lerp(movespeed, 0.25, 0.15)
+		running = true
+		movespeed = lerp(movespeed, 0.4, 0.1)
 	if !key_run:
-		movespeed = lerp(movespeed, 0.15, 0.15)
+		running = false
+		movespeed = lerp(movespeed, 0.15, 0.1)
 	if key_jump2:
-		if is_on_floor():
-			velocity.y = 0.5
+		if canjump:
+			if is_on_floor():
+					$jump.play()
+					velocity.y = 0.5
+					jumping = true
+	moving = move_dir.x != 0 and move_dir.z != 0
 	move_and_slide(velocity * 60, Vector3.UP)
 	#move_and_collide(velocity)
 
@@ -85,5 +109,21 @@ func get_inputs():
 	key_sright = Input.get_action_strength("player_right")
 	key_sup = Input.get_action_strength("player_up")
 	key_sdown = Input.get_action_strength("player_down")
+	
+var anchorY = 5
+var frequency = 0.1
+var amplitude = 0.2
+var timer = 0
+
+func camerabobbing():
+	if moving:
+		head.translation.y = headogpos.y + sin(timer*frequency)*amplitude
+		if !running:
+			timer += 2
+		if running:
+			timer += 3
+	if !moving:
+		head.translation.y = lerp(head.translation.y, headogpos.y, 0.2)
+	
 
 	
