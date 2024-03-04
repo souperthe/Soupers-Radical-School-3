@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/scripts/pause.gd" type="Script" id=1]
 [ext_resource path="res://assets/sound/sfx_pause.wav" type="AudioStream" id=2]
 [ext_resource path="res://assets/fonts/new_dynamicfont2.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/fonts/COMIC.TTF" type="DynamicFontData" id=4]
 [ext_resource path="res://assets/scripts/pausestuff.gd" type="Script" id=5]
+[ext_resource path="res://assets/fonts/design.graffiti.comicsansmsgras.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/fonts/design.graffiti.comicsansms.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/sprites/checker.png" type="Texture" id=8]
 
 [sub_resource type="Shader" id=1]
 code = "//SHADER ORIGINALY CREADED BY \"demofox\" FROM SHADERTOY
@@ -43,14 +46,44 @@ shader = SubResource( 1 )
 shader_param/contrast = 3.0
 shader_param/brightness = -1.0
 
+[sub_resource type="Shader" id=7]
+code = "shader_type canvas_item;
+
+uniform vec2 motion = vec2(0.0);
+uniform float scale = 1.0;
+uniform vec2 offset = vec2(0.0);
+
+void vertex(){
+	UV = (VERTEX + offset + TIME * motion) * TEXTURE_PIXEL_SIZE * (1.0/scale);
+}"
+
+[sub_resource type="ShaderMaterial" id=8]
+shader = SubResource( 7 )
+shader_param/motion = Vector2( -30, -30 )
+shader_param/scale = 1.0
+shader_param/offset = Vector2( 0, 0 )
+
 [sub_resource type="DynamicFont" id=4]
 size = 34
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 11
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 26
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 use_filter = true
-extra_spacing_char = 11
 font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 30
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+extra_spacing_char = 5
+font_data = ExtResource( 7 )
 
 [node name="pause" type="Control"]
 pause_mode = 2
@@ -63,11 +96,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="ColorRect" type="ColorRect" parent="pauseffects"]
+show_behind_parent = true
 material = SubResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="ColorRect2" type="ColorRect" parent="pauseffects"]
+show_behind_parent = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 1, 1, 1, 0.439216 )
@@ -81,7 +116,33 @@ bus = "SFX"
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
+margin_top = 100.0
+margin_bottom = 100.0
 script = ExtResource( 5 )
+
+[node name="TextureRect2" type="TextureRect" parent="pausestuff"]
+modulate = Color( 0, 0, 0, 1 )
+material = SubResource( 8 )
+margin_left = -183.0
+margin_top = -112.0
+margin_right = 189.0
+margin_bottom = 633.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource( 8 )
+stretch_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="pausestuff"]
+modulate = Color( 0.321569, 0.321569, 0.321569, 1 )
+material = SubResource( 8 )
+margin_left = -175.0
+margin_top = -112.0
+margin_right = 180.0
+margin_bottom = 633.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource( 8 )
+stretch_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="pausestuff"]
 margin_left = -480.0
@@ -91,5 +152,72 @@ margin_bottom = 186.0
 custom_fonts/mono_font = ExtResource( 3 )
 custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
-bbcode_text = "[center]PAUSED[/center]"
+bbcode_text = "[center][wave amp=50.0 freq=5.0 connected=1]PAUSED[/wave]"
 text = "PAUSED"
+scroll_active = false
+
+[node name="exit" type="RichTextLabel" parent="pausestuff"]
+margin_left = -175.0
+margin_top = 382.0
+margin_right = 180.0
+margin_bottom = 432.0
+custom_fonts/mono_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[center]Exit to Title"
+text = "Exit to Title"
+scroll_active = false
+
+[node name="settings" type="RichTextLabel" parent="pausestuff"]
+margin_left = -175.0
+margin_top = 320.0
+margin_right = 180.0
+margin_bottom = 370.0
+custom_fonts/mono_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[center]Settings"
+text = "Settings"
+scroll_active = false
+
+[node name="resume" type="RichTextLabel" parent="pausestuff"]
+margin_left = -175.0
+margin_top = 258.0
+margin_right = 180.0
+margin_bottom = 308.0
+custom_fonts/mono_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[center]Resume"
+text = "Resume"
+scroll_active = false
+
+[node name="Line2D" type="Line2D" parent="pausestuff"]
+position = Vector2( -4, 220 )
+points = PoolVector2Array( -79, -1, 79, -1 )
+width = 9.0
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="Line2D2" type="Line2D" parent="pausestuff"]
+position = Vector2( -4, 220 )
+points = PoolVector2Array( -77, -1, 77, -1 )
+width = 5.0
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="resume2" type="Button" parent="pausestuff"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -78.0
+margin_top = 264.0
+margin_right = 79.0
+margin_bottom = 300.0
+
+[node name="title" type="Button" parent="pausestuff"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -114.0
+margin_top = 388.0
+margin_right = 119.0
+margin_bottom = 424.0
+
+[connection signal="meta_hover_started" from="pausestuff/resume" to="." method="_on_resume_meta_hover_started"]
+[connection signal="pressed" from="pausestuff/resume2" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="pausestuff/title" to="." method="_on_title_pressed"]

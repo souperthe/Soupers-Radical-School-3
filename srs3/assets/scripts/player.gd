@@ -21,6 +21,8 @@ var canmove = true
 var grounded = true
 var running = false
 var stamina = 100
+var canrun = true
+var mouse = Vector2()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -31,6 +33,7 @@ func _input(event):
 		look_rot.y -= (event.relative.x * global.mousesens)
 		look_rot.x -= (event.relative.y * global.mousesens)
 		look_rot.x = clamp(look_rot.x, minangle, maxangle)
+		mouse = event.position
 
 func _process(delta):
 	get_inputs()
@@ -38,15 +41,22 @@ func _process(delta):
 
 
 func _physics_process(delta):
-	$HUDLayer/HUD/sprint.stamina = stamina
-	$HUDLayer/HUD/Viewmodel.moving = moving
-	$HUDLayer/HUD/Viewmodel.running = running
-	$HUDLayer/HUD/sprint.running = running
+	global.player = self
+	$HUD/crosshair.visible = $head/InteractRay.clickable
+	$HUD/sprint.stamina = stamina
+	$HUD/Viewmodel.moving = moving
+	$HUD/Viewmodel.canrun = canrun
+	$HUD/Viewmodel.running = running
+	$HUD/sprint.running = running
 	grounded = is_on_floor()
 	head.rotation_degrees.x = look_rot.x
 	rotation_degrees.y = look_rot.y
 	camerabobbing()
 	move_dir = Vector3(key_sright - key_sleft, 0, key_sdown - key_sup).normalized().rotated(Vector3.UP, rotation.y)
+	if stamina > 0:
+		canrun = true
+	if stamina < 0.1:
+		canrun = false
 	if canmove:
 		velocity.x = float(move_dir.x * movespeed)
 		velocity.z = float(move_dir.z * movespeed)
@@ -63,10 +73,23 @@ func _physics_process(delta):
 	#gravity = 0
 	if key_run:
 		running = true
-		movespeed = lerp(movespeed, 0.4, 0.1)
+		if stamina > 0:
+			movespeed = lerp(movespeed, 0.35, 0.1)
+		if stamina < 0.1:
+			movespeed = lerp(movespeed, 0.15, 0.1)
 	if !key_run:
 		running = false
 		movespeed = lerp(movespeed, 0.15, 0.1)
+	if running:
+		if stamina > 0:
+			if moving:
+				stamina -= 0.55
+	if !running:
+		if stamina < 100:
+			if moving:
+				stamina += 0.02
+			if !moving:
+				stamina += 0.1
 	if key_jump2:
 		if canjump:
 			if is_on_floor():
@@ -75,6 +98,8 @@ func _physics_process(delta):
 					jumping = true
 	moving = move_dir.x != 0 and move_dir.z != 0
 	move_and_slide(velocity * 60, Vector3.UP)
+	if stamina < 0:
+		stamina = 0
 	#move_and_collide(velocity)
 
 
@@ -121,12 +146,14 @@ var timer = 0
 func camerabobbing():
 	if moving:
 		head.translation.y = headogpos.y + sin(timer*frequency)*amplitude
-		if !running:
+		if !running or !canrun:
 			timer += 2
-		if running:
+		if running and canrun:
 			timer += 3
 	if !moving:
 		head.translation.y = lerp(head.translation.y, headogpos.y, 0.2)
 	
 
 	
+
+

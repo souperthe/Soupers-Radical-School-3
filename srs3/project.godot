@@ -9,19 +9,25 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area",
+"class": "Interactable",
+"language": "GDScript",
+"path": "res://assets/scripts/interactable.gd"
+}, {
 "base": "KinematicBody",
 "class": "Player",
 "language": "GDScript",
 "path": "res://assets/scripts/player.gd"
 } ]
 _global_script_class_icons={
+"Interactable": "",
 "Player": ""
 }
 
 [application]
 
 config/name="Soupers Radical School 3"
-run/main_scene="res://assets/scenes/first ever scene.tscn"
+run/main_scene="res://assets/scenes/titlescreen.tscn"
 config/icon="res://assets/sprites/icon.png"
 
 [autoload]
@@ -32,7 +38,8 @@ global="*res://assets/objects/global.tscn"
 
 window/size/width=960
 window/size/height=720
-window/stretch/mode="viewport"
+mouse_cursor/custom_image="res://assets/sprites/curser.png"
+window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
 [gui]

@@ -13,6 +13,7 @@ var timer = 0
 var timery = 0
 var moving = false
 var running = false
+var canrun = false
 
 onready var y = position.y
 onready var x = position.y
@@ -24,10 +25,10 @@ func _process(delta):
 	if moving:
 		position.x = ogposition.x + sin(timer*0.1)*35
 		position.y = ogposition.y + sin(timery*frequency)*amplitude
-		if !running:
+		if !running or !canrun:
 			timer += 0.5
 			timery += 0.6
-		if running:
+		if running and canrun:
 			timer += 0.8
 			timery += 0.9
 	if !moving:

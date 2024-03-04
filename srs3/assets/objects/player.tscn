@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/objects/HUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/objects/pause.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/sound/sfx_jump.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/sound/sfx_step.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/scripts/InteractRay.gd" type="Script" id=6]
 
 [sub_resource type="CylinderShape" id=1]
 height = 4.0
@@ -22,11 +23,9 @@ script = ExtResource( 1 )
 layer = 127
 
 [node name="pause" parent="PauseLayer" instance=ExtResource( 3 )]
+visible = false
 
-[node name="HUDLayer" type="CanvasLayer" parent="."]
-layer = 126
-
-[node name="HUD" parent="HUDLayer" instance=ExtResource( 2 )]
+[node name="HUD" parent="." instance=ExtResource( 2 )]
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
@@ -39,8 +38,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0439639, 0 )
 current = true
 
-[node name="RayCast" type="RayCast" parent="head/Camera"]
-cast_to = Vector3( 0, 0, -10 )
+[node name="InteractRay" type="RayCast" parent="head"]
+enabled = true
+cast_to = Vector3( 0, 0, -5 )
+collide_with_areas = true
+script = ExtResource( 6 )
 
 [node name="jump" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
