@@ -22,7 +22,7 @@ func _ready():
 
 func _process(delta):
 	if moving:
-		position.x = ogposition.x + sin(timer*frequency)*amplitude
+		position.x = ogposition.x + sin(timer*0.1)*35
 		position.y = ogposition.y + sin(timery*frequency)*amplitude
 		if !running:
 			timer += 0.5
@@ -32,4 +32,6 @@ func _process(delta):
 			timery += 0.9
 	if !moving:
 		position = lerp(position, ogposition, 0.2)
+		timer = 0
+		timery = 0
 	pass

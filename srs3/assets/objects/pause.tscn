@@ -49,12 +49,11 @@ outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 use_mipmaps = true
 use_filter = true
-extra_spacing_char = 3
+extra_spacing_char = 11
 font_data = ExtResource( 4 )
 
 [node name="pause" type="Control"]
 pause_mode = 2
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
