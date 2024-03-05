@@ -1,7 +1,7 @@
 class_name Enemy
 extends KinematicBody
 
-export var speed = 5
+var speed = 5
 
 
 var path = []

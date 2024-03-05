@@ -9,15 +9,100 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "ChatMessage",
+"language": "GDScript",
+"path": "res://addons/discord_game_sdk/example/lobby/chat_message.gd"
+}, {
+"base": "",
+"class": "DiscordActivity",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_activity.gdns"
+}, {
+"base": "Reference",
+"class": "DiscordActivityAssets",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_activity_assets.gdns"
+}, {
+"base": "Reference",
+"class": "DiscordActivityManager",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_activity_manager.gdns"
+}, {
+"base": "Reference",
+"class": "DiscordActivityParty",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_activity_party.gdns"
+}, {
+"base": "Reference",
+"class": "DiscordActivitySecrets",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_activity_secrets.gdns"
+}, {
+"base": "Reference",
+"class": "DiscordActivityTimestamps",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_activity_timestamps.gdns"
+}, {
+"base": "Reference",
+"class": "DiscordCore",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_core.gdns"
+}, {
+"base": "",
+"class": "DiscordLobby",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_lobby.gdns"
+}, {
+"base": "Reference",
+"class": "DiscordLobbyManager",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_lobby_manager.gdns"
+}, {
+"base": "",
+"class": "DiscordLobbyTransaction",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_lobby_transaction.gdns"
+}, {
+"base": "Reference",
+"class": "DiscordOverlayManager",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_overlay_manager.gdns"
+}, {
+"base": "",
+"class": "DiscordPartySize",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_party_size.gdns"
+}, {
+"base": "Reference",
+"class": "DiscordResult",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_result.gdns"
+}, {
+"base": "",
+"class": "DiscordUser",
+"language": "NativeScript",
+"path": "res://addons/discord_game_sdk/discord_user.gdns"
+}, {
 "base": "KinematicBody",
 "class": "Enemy",
 "language": "GDScript",
 "path": "res://assets/scripts/enemy.gd"
 }, {
+"base": "Resource",
+"class": "GameState",
+"language": "GDScript",
+"path": "res://addons/discord_game_sdk/example/lobby/game_state.gd"
+}, {
 "base": "Area",
 "class": "Interactable",
 "language": "GDScript",
 "path": "res://assets/scripts/interactable.gd"
+}, {
+"base": "Resource",
+"class": "Member",
+"language": "GDScript",
+"path": "res://addons/discord_game_sdk/example/lobby/member.gd"
 }, {
 "base": "KinematicBody",
 "class": "Player",
@@ -25,8 +110,25 @@ _global_script_classes=[ {
 "path": "res://assets/scripts/player.gd"
 } ]
 _global_script_class_icons={
+"ChatMessage": "",
+"DiscordActivity": "",
+"DiscordActivityAssets": "",
+"DiscordActivityManager": "",
+"DiscordActivityParty": "",
+"DiscordActivitySecrets": "",
+"DiscordActivityTimestamps": "",
+"DiscordCore": "",
+"DiscordLobby": "",
+"DiscordLobbyManager": "",
+"DiscordLobbyTransaction": "",
+"DiscordOverlayManager": "",
+"DiscordPartySize": "",
+"DiscordResult": "",
+"DiscordUser": "",
 "Enemy": "",
+"GameState": "",
 "Interactable": "",
+"Member": "",
 "Player": ""
 }
 
@@ -39,6 +141,7 @@ config/icon="res://assets/sprites/icon.png"
 [autoload]
 
 global="*res://assets/objects/global.tscn"
+Discord="*res://addons/discord_game_sdk/discord.gd"
 
 [debug]
 
@@ -52,6 +155,10 @@ window/vsync/vsync_via_compositor=true
 mouse_cursor/custom_image="res://assets/sprites/curser.png"
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/discord_game_sdk/plugin.cfg" )
 
 [gui]
 

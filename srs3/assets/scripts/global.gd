@@ -9,6 +9,7 @@ export var mousesens = 0.2
 var player
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#get_tree().get_root().set_transparent_background(true)
 	pass # Replace with function body.
 
 
