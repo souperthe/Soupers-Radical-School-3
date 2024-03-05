@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/meshlibary/chair1.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/sprites/woodagain.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/boxshadow.png" type="Texture" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.416982, 2.02221, 0.462394 )
+
+[node name="Chair" type="Spatial"]
+
+[node name="KinematicBody" type="KinematicBody" parent="."]
+
+[node name="Sprite3D2" type="Sprite3D" parent="KinematicBody"]
+transform = Transform( 6.84443, 0, 0, 0, -4.57893e-08, 1.04754, 0, -7.78278, -3.40197e-07, 0.0779095, 0.00666184, 0.0991493 )
+modulate = Color( 0, 0, 0, 1 )
+opacity = 0.5
+pixel_size = 0.003
+shaded = true
+texture = ExtResource( 3 )
+
+[node name="MeshInstance" type="MeshInstance" parent="KinematicBody"]
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0928761, 1.98679, 0.088601 )
+shape = SubResource( 2 )

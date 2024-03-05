@@ -1,0 +1,53 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/sprites/woodagain.png" type="Texture" id=1]
+[ext_resource path="res://assets/meshlibary/desk1.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://assets/sprites/woodfloor.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/boxshadow.png" type="Texture" id=4]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 1, 0.827451, 0, 1 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 1.60185, 2.4307, 0.684514 )
+
+[node name="DeskVariant2" type="Spatial"]
+
+[node name="KinematicBody" type="KinematicBody" parent="."]
+
+[node name="Sprite3D2" type="Sprite3D" parent="KinematicBody"]
+transform = Transform( 25.5798, 0, 0, 0, -4.37114e-08, 1, 0, -10.6137, -4.63941e-07, -0.00769144, 0.00666184, 0.20163 )
+modulate = Color( 0, 0, 0, 1 )
+opacity = 0.5
+pixel_size = 0.003
+shaded = true
+texture = ExtResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="KinematicBody"]
+mesh = ExtResource( 2 )
+material/0 = SubResource( 1 )
+material/2 = SubResource( 2 )
+
+[node name="CSGSphere" type="CSGSphere" parent="KinematicBody/MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.13989, 0.802981, 0.866305 )
+radius = 0.0746148
+radial_segments = 4
+rings = 2
+material = SubResource( 3 )
+
+[node name="CSGSphere2" type="CSGSphere" parent="KinematicBody/MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.16006, 0.802981, 0.866305 )
+radius = 0.0746148
+radial_segments = 4
+rings = 2
+material = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.43206, 0.196487 )
+shape = SubResource( 4 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://assets/objects/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/checkerfloor.png" type="Texture" id=2]
@@ -10,10 +10,15 @@
 [ext_resource path="res://assets/sprites/woodtest.png" type="Texture" id=8]
 [ext_resource path="res://assets/objects/light.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/sprites/brick2.png" type="Texture" id=10]
+[ext_resource path="res://assets/objects/Desk.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/sprites/sky.png" type="Texture" id=12]
 [ext_resource path="res://assets/sprites/cobblestone.png" type="Texture" id=13]
 [ext_resource path="res://assets/objects/Plant.tscn" type="PackedScene" id=14]
 [ext_resource path="res://assets/sprites/classic drawing.png" type="Texture" id=15]
+[ext_resource path="res://assets/objects/Desk2.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/objects/Chair1.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/objects/Desk3.tscn" type="PackedScene" id=18]
+[ext_resource path="res://assets/objects/Stool.tscn" type="PackedScene" id=19]
 
 [sub_resource type="PanoramaSky" id=15]
 radiance_size = 0
@@ -186,3 +191,30 @@ transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 9.16452, 0.50118, -22.4752 )
 
 [node name="light" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.98339, 8.10854, -20.6125 )
+
+[node name="Desk" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1.2, 0, 0, 0, 1.32, 0, 0, 0, 1.2, 13.207, 0.5, -5.67133 )
+
+[node name="DeskVariant2" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1.76, 0, 0, 0, 1.76, 0, 0, 0, 1.76, 15.2379, 0.5, -16.5718 )
+
+[node name="Chair" parent="." instance=ExtResource( 17 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.65, 0, -1.5, 0, -6.55671e-08, 15.2128, 0.512234, -14.7568 )
+
+[node name="Chair2" parent="." instance=ExtResource( 17 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.65, 0, -1.5, 0, -6.55671e-08, -1.30402, 0.512234, -14.7568 )
+
+[node name="DeskVariant3" parent="." instance=ExtResource( 18 )]
+transform = Transform( 1.87, 0, 0, 0, 1.87, 0, 0, 0, 1.87, -1.67098, 0.458678, -16.2054 )
+
+[node name="Stool4" parent="." instance=ExtResource( 19 )]
+transform = Transform( 1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 13.2832, 0.500001, -8.14845 )
+
+[node name="Stool5" parent="." instance=ExtResource( 19 )]
+transform = Transform( 1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 13.2832, 0.500001, -3.14845 )
+
+[node name="Stool6" parent="." instance=ExtResource( 19 )]
+transform = Transform( -7.86805e-08, 0, -1.8, 0, 1.8, 0, 1.8, 0, -7.86805e-08, 15.7832, 0.500001, -5.64845 )
+
+[node name="Stool7" parent="." instance=ExtResource( 19 )]
+transform = Transform( -7.86805e-08, 0, -1.8, 0, 1.8, 0, 1.8, 0, -7.86805e-08, 10.7832, 0.500001, -5.64845 )

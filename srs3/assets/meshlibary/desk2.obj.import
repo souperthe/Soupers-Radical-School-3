@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/desk2.obj-e73d93216d73ca5baca0d67ab448206d.mesh"
+
+[deps]
+
+files=[ "res://.import/desk2.obj-e73d93216d73ca5baca0d67ab448206d.mesh" ]
+
+source_file="res://assets/meshlibary/desk2.obj"
+dest_files=[ "res://.import/desk2.obj-e73d93216d73ca5baca0d67ab448206d.mesh", "res://.import/desk2.obj-e73d93216d73ca5baca0d67ab448206d.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
