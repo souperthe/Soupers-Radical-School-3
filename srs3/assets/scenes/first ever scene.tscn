@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/objects/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/checkerfloor.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://assets/meshlibary/penis3.tres" type="MeshLibrary" id=6]
 [ext_resource path="res://assets/sound/mus_floor2.wav" type="AudioStream" id=7]
 [ext_resource path="res://assets/sprites/woodtest.png" type="Texture" id=8]
+[ext_resource path="res://assets/objects/light.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/sprites/brick2.png" type="Texture" id=10]
 [ext_resource path="res://assets/sprites/sky.png" type="Texture" id=12]
 [ext_resource path="res://assets/sprites/cobblestone.png" type="Texture" id=13]
@@ -182,3 +183,6 @@ autoplay = true
 
 [node name="Plant2" parent="." instance=ExtResource( 14 )]
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 9.16452, 0.50118, -22.4752 )
+
+[node name="light" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 3.98339, 8.10854, -20.6125 )

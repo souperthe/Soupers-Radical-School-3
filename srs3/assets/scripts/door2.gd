@@ -12,6 +12,10 @@ func _ready():
 
 
 func _process(delta):
-	$CSGBox.visible = !$doordetect.opened
+	#$CSGCombiner.visible = !$doordetect.opened
+	if $doordetect.opened:
+		$AnimationPlayer.play("open")
+	if !$doordetect.opened:
+		$AnimationPlayer.play("close")
 	$CollisionShape.disabled = $doordetect.opened
 	pass
