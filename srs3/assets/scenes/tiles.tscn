@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/sprites/checkerfloor.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/wood2.png" type="Texture" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 0.5, 0.5, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 0.5, 0.5, 1 )
+
+[node name="tiles" type="Spatial"]
+
+[node name="floor" type="MeshInstance" parent="."]
+
+[node name="floor" type="CSGCombiner" parent="floor"]
+
+[node name="CSGBox" type="CSGBox" parent="floor/floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1 )
+height = 0.002
+material = SubResource( 1 )
+
+[node name="CSGBox2" type="CSGBox" parent="floor/floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 4, 1 )
+height = 0.002
+material = SubResource( 2 )

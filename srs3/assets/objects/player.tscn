@@ -40,7 +40,7 @@ current = true
 
 [node name="InteractRay" type="RayCast" parent="head"]
 enabled = true
-cast_to = Vector3( 0, 0, -5 )
+cast_to = Vector3( 0, 0, -7 )
 collide_with_areas = true
 script = ExtResource( 6 )
 
