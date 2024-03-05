@@ -9,3 +9,5 @@ extends Interactable
 func clicked():
 	translation.x += 1
 	$sound.play()
+
+

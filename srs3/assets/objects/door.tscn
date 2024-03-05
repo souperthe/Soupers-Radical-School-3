@@ -1,0 +1,55 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/sprites/woodfloor.png" type="Texture" id=1]
+[ext_resource path="res://assets/scripts/door.gd" type="Script" id=2]
+[ext_resource path="res://assets/scripts/door2.gd" type="Script" id=3]
+[ext_resource path="res://assets/sound/sfx_dooropen.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sound/sfx_doorclose.wav" type="AudioStream" id=5]
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 1, 2.24, 0.05 )
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 1.1, 2.24, 0.1 )
+
+[sub_resource type="AudioStreamRandomPitch" id=11]
+audio_stream = ExtResource( 4 )
+
+[sub_resource type="AudioStreamRandomPitch" id=12]
+audio_stream = ExtResource( 5 )
+
+[node name="door" type="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 0 )
+script = ExtResource( 3 )
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00178719, -0.00990534, 0.00270844 )
+height = 4.5
+depth = 0.1
+material = SubResource( 8 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 9 )
+
+[node name="doordetect" type="Area" parent="."]
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="doordetect"]
+shape = SubResource( 10 )
+
+[node name="sound" type="AudioStreamPlayer3D" parent="doordetect"]
+stream = SubResource( 11 )
+unit_db = 12.929
+
+[node name="sound2" type="AudioStreamPlayer3D" parent="doordetect"]
+stream = SubResource( 12 )
+unit_db = 12.929
+
+[node name="Timer" type="Timer" parent="doordetect"]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="doordetect/Timer" to="doordetect" method="_on_Timer_timeout"]
