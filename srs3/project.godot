@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "KinematicBody",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://assets/scripts/enemy.gd"
+}, {
 "base": "Area",
 "class": "Interactable",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://assets/scripts/player.gd"
 } ]
 _global_script_class_icons={
+"Enemy": "",
 "Interactable": "",
 "Player": ""
 }
@@ -98,6 +104,12 @@ pause={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[layer_names]
+
+3d_physics/layer_1="Player"
+3d_physics/layer_2="Enemies"
+3d_physics/layer_3="World"
 
 [physics]
 

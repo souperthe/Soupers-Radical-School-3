@@ -23,6 +23,7 @@ shaded = true
 texture = ExtResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="KinematicBody"]
+cast_shadow = 0
 mesh = ExtResource( 1 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 1 )

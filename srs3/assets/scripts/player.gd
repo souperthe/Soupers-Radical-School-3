@@ -79,7 +79,10 @@ func _physics_process(delta):
 			movespeed = lerp(movespeed, 0.15, 0.1)
 	if !key_run:
 		running = false
-		movespeed = lerp(movespeed, 0.15, 0.1)
+		if stamina != 0:
+			movespeed = lerp(movespeed, 0.15, 0.1)
+		if stamina == 0:
+			movespeed = lerp(movespeed, 0.05, 0.1)
 	if running:
 		if stamina > 0:
 			if moving:
