@@ -52,6 +52,7 @@ func _physics_process(delta):
 	head.rotation_degrees.x = look_rot.x
 	rotation_degrees.y = look_rot.y
 	camerabobbing()
+	footstepsounds()
 	move_dir = Vector3(key_sright - key_sleft, 0, key_sdown - key_sup).normalized().rotated(Vector3.UP, rotation.y)
 	if stamina > 0:
 		canrun = true
@@ -155,6 +156,20 @@ func camerabobbing():
 			timer += 3
 	if !moving:
 		head.translation.y = lerp(head.translation.y, headogpos.y, 0.2)
+		
+func footstepsounds():
+	if is_on_floor() and moving and !is_on_wall():
+		if !running or !canrun:
+			$running.stop()
+			if !$walking.playing:
+				$walking.play()
+		if running and canrun:
+			if !$running.playing:
+				$running.play()
+			$walking.stop()
+	else:
+		$running.stop()
+		$walking.stop()
 	
 
 	
