@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://assets/objects/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/checkerfloor.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/sound/sfx_funnysound1.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/objects/door.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/meshlibary/penis3.tres" type="MeshLibrary" id=6]
+[ext_resource path="res://assets/objects/Computter.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/sprites/woodtest.png" type="Texture" id=8]
 [ext_resource path="res://assets/objects/light.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/sprites/brick2.png" type="Texture" id=10]
@@ -290,3 +291,6 @@ texture = SubResource( 19 )
 
 [node name="door2" parent="." instance=ExtResource( 5 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14.4737, 2.8, 9.65705 )
+
+[node name="computer" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.3564, 0, 0, 0, 0.3564, 0, 0, 0, 0.3564, 15.1578, 2.25901, -16.5989 )
