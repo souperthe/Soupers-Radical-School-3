@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://assets/objects/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/meshlibary/floors5.tres" type="MeshLibrary" id=2]
@@ -13,19 +13,24 @@
 [ext_resource path="res://assets/objects/Desk3.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/objects/Chair1.tscn" type="PackedScene" id=12]
 [ext_resource path="res://assets/objects/superboy.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/objects/StudenDesk.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/sprites/woodtest.png" type="Texture" id=15]
+[ext_resource path="res://assets/objects/schoolparts/doubledoorwithwall.tscn" type="PackedScene" id=16]
+[ext_resource path="res://assets/objects/Computter.tscn" type="PackedScene" id=17]
+[ext_resource path="res://assets/scripts/testmap.gd" type="Script" id=18]
+[ext_resource path="res://assets/objects/Desk2.tscn" type="PackedScene" id=19]
+[ext_resource path="res://assets/objects/Stool.tscn" type="PackedScene" id=20]
+[ext_resource path="res://assets/sprites/classic drawing.png" type="Texture" id=21]
 
-[sub_resource type="PanoramaSky" id=20]
-radiance_size = 0
-panorama = ExtResource( 3 )
+[sub_resource type="ProceduralSky" id=22]
 
 [sub_resource type="Environment" id=21]
-background_mode = 1
-background_sky = SubResource( 20 )
+background_sky = SubResource( 22 )
 background_color = Color( 1, 1, 1, 1 )
 background_energy = 0.0
+background_canvas_max_layer = -1
 ambient_light_color = Color( 1, 1, 1, 1 )
 ambient_light_sky_contribution = 0.0
-fog_enabled = true
 fog_color = Color( 0, 0, 0, 1 )
 fog_sun_color = Color( 1, 1, 1, 1 )
 fog_depth_begin = 0.0
@@ -37,7 +42,19 @@ dof_blur_far_distance = 36.57
 dof_blur_far_quality = 0
 adjustment_enabled = true
 
-[node name="Spatial" type="Spatial"]
+[sub_resource type="SpatialMaterial" id=23]
+albedo_texture = ExtResource( 15 )
+uv1_scale = Vector3( 50, 50, 150 )
+
+[sub_resource type="QuadMesh" id=24]
+material = SubResource( 23 )
+size = Vector2( 230, 230 )
+
+[sub_resource type="ConcavePolygonShape" id=25]
+data = PoolVector3Array( -115, -115, 0, -115, 115, 0, 115, 115, 0, -115, -115, 0, 115, 115, 0, 115, -115, 0 )
+
+[node name="school" type="Spatial"]
+script = ExtResource( 18 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 
@@ -75,6 +92,16 @@ texture = ExtResource( 7 )
 
 [node name="map" type="Spatial" parent="."]
 
+[node name="ceiling" type="MeshInstance" parent="map"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 6.4, -102 )
+mesh = SubResource( 24 )
+skeleton = NodePath("../..")
+
+[node name="StaticBody" type="StaticBody" parent="map/ceiling"]
+
+[node name="CollisionShape" type="CollisionShape" parent="map/ceiling/StaticBody"]
+shape = SubResource( 25 )
+
 [node name="GridMap" type="GridMap" parent="map"]
 mesh_library = ExtResource( 2 )
 cell_size = Vector3( 4, 4, 4 )
@@ -89,24 +116,34 @@ __meta__ = {
 "_editor_floor_": Vector3( 0, 0, 0 )
 }
 
-[node name="GridMap2" type="GridMap" parent="map"]
+[node name="walls" type="GridMap" parent="map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0 )
 mesh_library = ExtResource( 8 )
 cell_center_x = false
 cell_center_y = false
 cell_center_z = false
 data = {
-"cells": PoolIntArray( 2, 65513, 393216, 4, 65513, 393216, 6, 65513, 393216, 8, 65513, 393216, 10, 65513, 393216, 12, 65513, 393216, 1, 65514, 1376256, 13, 65514, 1114112, 13, 65516, 1114112, 1, 65518, 1376256, 13, 65518, 1114112, 65526, 65519, 262144, 65528, 65519, 262144, 65530, 65519, 262144, 65532, 65519, 262144, 65534, 65519, 262144, 1, 65520, 1376256, 13, 65520, 1114112, 65525, 65520, 1245184, 65535, 65520, 1507328, 1, 65522, 1376256, 13, 65522, 1114112, 65525, 65522, 1245184, 65535, 65522, 1507328, 1, 65524, 1376256, 13, 65524, 1114112, 65525, 65524, 1245184, 2, 65525, 786432, 4, 65525, 786432, 6, 65525, 786432, 8, 65525, 786432, 10, 65525, 786432, 12, 65525, 786432, 1, 65526, 1376256, 65525, 65526, 1245184, 65535, 65526, 1376256, 1, 65528, 1376256, 65525, 65528, 1245184, 65535, 65528, 1376256, 65526, 65529, 786432, 65528, 65529, 786432, 65530, 65529, 786432, 65532, 65529, 786432, 65534, 65529, 786432 )
+"cells": PoolIntArray( 5, 0, 1376256, 65531, 0, 1507328, 5, 2, 1376256, 65531, 2, 1507328, 0, 3, 393216, 2, 3, 393216, 4, 3, 393216, 65532, 3, 393216, 65534, 3, 393216, 2, 65515, 786432, 4, 65515, 786432, 6, 65515, 786432, 8, 65515, 786432, 10, 65515, 786432, 12, 65515, 786432, 1, 65516, 1507328, 13, 65516, 1245184, 1, 65518, 1507328, 13, 65518, 1114112, 65535, 65518, 1376256, 65526, 65519, 262144, 65528, 65519, 262144, 65530, 65519, 262144, 65532, 65519, 262144, 65534, 65519, 262144, 1, 65520, 1507328, 13, 65520, 1114112, 65525, 65520, 1245184, 65535, 65520, 1507328, 13, 65522, 1114112, 65525, 65522, 1245184, 65535, 65522, 1507328, 1, 65524, 1507328, 13, 65524, 1114112, 65525, 65524, 1245184, 2, 65525, 786432, 4, 65525, 786432, 6, 65525, 786432, 8, 65525, 786432, 10, 65525, 786432, 12, 65525, 786432, 1, 65526, 1376256, 65525, 65526, 1245184, 65535, 65526, 1376256, 1, 65528, 1376256, 65525, 65528, 1245184, 65535, 65528, 1376256, 2, 65529, 786432, 4, 65529, 786432, 65526, 65529, 786432, 65528, 65529, 786432, 65530, 65529, 786432, 65532, 65529, 786432, 65534, 65529, 786432, 5, 65530, 1376256, 65531, 65530, 1507328, 5, 65532, 1376256, 65531, 65532, 1507328, 6, 65533, 917504, 8, 65533, 917504, 10, 65533, 917504, 12, 65533, 917504 )
 }
 __meta__ = {
-"_editor_clip_": 0
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 0 )
 }
 
 [node name="doorwithwall" parent="map" instance=ExtResource( 9 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 4, -24 )
 
 [node name="doorwithwall2" parent="map" instance=ExtResource( 9 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 4, -40 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 4, -28 )
+
+[node name="doorwithwall3" parent="map" instance=ExtResource( 16 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 4, -4 )
+
+[node name="doorwithwall4" parent="map" instance=ExtResource( 16 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 4, -4 )
+
+[node name="doorwithwall5" parent="map" instance=ExtResource( 16 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 4, -34 )
 
 [node name="decorations" type="Spatial" parent="."]
 
@@ -114,12 +151,162 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 4, -
 transform = Transform( -2.18557e-08, 0, 0.85, 0, 0.5, 0, -0.5, 0, -3.71547e-08, -22, 3.44164, -24 )
 
 [node name="DeskVariant3" parent="decorations" instance=ExtResource( 11 )]
-transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -18, 0, -24 )
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -18.8, 0, -24 )
 
-[node name="Chair" parent="decorations" instance=ExtResource( 12 )]
-transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -20, 0.02, -24.6 )
+[node name="Chair" parent="decorations/DeskVariant3" instance=ExtResource( 12 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.400002, 0.0133333, -1.2 )
+
+[node name="StudenDesk" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.2, 0, -24 )
+
+[node name="Chair" parent="decorations/StudenDesk" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk2" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.2, 0, -30 )
+
+[node name="Chair" parent="decorations/StudenDesk2" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk3" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.2, 0, -18 )
+
+[node name="Chair" parent="decorations/StudenDesk3" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk4" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.2, 0, -24 )
+
+[node name="Chair" parent="decorations/StudenDesk4" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk5" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.2, 0, -30 )
+
+[node name="Chair" parent="decorations/StudenDesk5" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk6" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11.2, 0, -18 )
+
+[node name="Chair" parent="decorations/StudenDesk6" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk8" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.2, 0, -30 )
+
+[node name="Chair" parent="decorations/StudenDesk8" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk9" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.2, 0, -18 )
+
+[node name="Chair" parent="decorations/StudenDesk9" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk7" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.2, 0, -24 )
+
+[node name="Chair" parent="decorations/StudenDesk7" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="Blackboard2" parent="decorations" instance=ExtResource( 10 )]
+transform = Transform( 6.55671e-08, 0, -0.85, 0, 0.5, 0, 0.5, 0, 1.11464e-07, 26, 3.44164, -32 )
+
+[node name="DeskVariant4" parent="decorations" instance=ExtResource( 11 )]
+transform = Transform( 1.96701e-07, 0, -1.5, 0, 1.5, 0, 1.5, 0, 1.96701e-07, 21.2, 0, -32 )
+
+[node name="Chair" parent="decorations/DeskVariant4" instance=ExtResource( 12 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.400002, 0.0133333, -1.2 )
+
+[node name="StudenDesk10" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 16.8, 0, -32 )
+
+[node name="Chair" parent="decorations/StudenDesk10" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk11" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 16.8, 0, -26 )
+
+[node name="Chair" parent="decorations/StudenDesk11" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk12" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 16.8, 0, -38 )
+
+[node name="Chair" parent="decorations/StudenDesk12" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk13" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 12.8, 0, -32 )
+
+[node name="Chair" parent="decorations/StudenDesk13" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk14" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 12.8, 0, -26 )
+
+[node name="Chair" parent="decorations/StudenDesk14" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk15" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 12.8, 0, -38 )
+
+[node name="Chair" parent="decorations/StudenDesk15" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk16" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 8.8, 0, -26 )
+
+[node name="Chair" parent="decorations/StudenDesk16" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk17" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 8.8, 0, -38 )
+
+[node name="Chair" parent="decorations/StudenDesk17" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk18" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 8.8, 0, -32 )
+
+[node name="Chair" parent="decorations/StudenDesk18" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="DeskVariant2" parent="decorations" instance=ExtResource( 19 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 2.8, 0, -37.6 )
+
+[node name="computer" parent="decorations" instance=ExtResource( 17 )]
+transform = Transform( -1.31134e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.31134e-08, 2.94569, 1.5165, -38 )
+
+[node name="Stool" parent="decorations" instance=ExtResource( 20 )]
+transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 4.8, 0, -38 )
+
+[node name="Sprite3D" type="Sprite3D" parent="decorations"]
+transform = Transform( -4.37114e-08, 0, 1, 0.0871558, 0.996195, 3.8097e-09, -0.996195, 0.0871558, -4.35451e-08, 2.01, 2.8, -36.4 )
+shaded = true
+double_sided = false
+alpha_cut = 1
+texture = ExtResource( 21 )
 
 [node name="superboys" type="Spatial" parent="."]
 
 [node name="superboy" parent="superboys" instance=ExtResource( 13 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 2.6, -24 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8, 2.6, -24 )
+
+[node name="superboy2" parent="superboys" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.2, 2.6, -32 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -10
+visible = false
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+stretch_mode = 1

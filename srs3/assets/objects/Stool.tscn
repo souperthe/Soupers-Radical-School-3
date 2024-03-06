@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/meshlibary/chair2.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/sprites/woodagain.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/circle.png" type="Texture" id=3]
+[ext_resource path="res://assets/objects/Optimizer.tscn" type="PackedScene" id=4]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 2 )
@@ -31,3 +32,6 @@ material/0 = SubResource( 1 )
 [node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38126, 0 )
 shape = SubResource( 2 )
+
+[node name="Optimizer" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.6, 0 )

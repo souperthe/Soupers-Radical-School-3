@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/sprites/woodagain.png" type="Texture" id=1]
 [ext_resource path="res://assets/meshlibary/desk3.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://assets/sprites/circle.png" type="Texture" id=3]
+[ext_resource path="res://assets/objects/Optimizer.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CylinderShape" id=2]
 height = 4.77936
@@ -32,3 +33,6 @@ opacity = 0.5
 pixel_size = 0.003
 shaded = true
 texture = ExtResource( 3 )
+
+[node name="Optimizer" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )

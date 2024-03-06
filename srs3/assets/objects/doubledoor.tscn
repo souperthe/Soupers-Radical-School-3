@@ -1,0 +1,154 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://assets/sprites/doubledoot.png" type="Texture" id=1]
+[ext_resource path="res://assets/scripts/door.gd" type="Script" id=2]
+[ext_resource path="res://assets/scripts/door2.gd" type="Script" id=3]
+[ext_resource path="res://assets/sound/sfx_ddooropen.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/sound/sfx_ddoorclose.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/scripts/enemydetect.gd" type="Script" id=6]
+
+[sub_resource type="SpatialMaterial" id=17]
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 1, 2, 1 )
+
+[sub_resource type="SpatialMaterial" id=18]
+albedo_color = Color( 0, 0, 0, 1 )
+albedo_texture = ExtResource( 1 )
+uv1_scale = Vector3( 1, 2, 1 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 1.99882, 2.24, 0.05 )
+
+[sub_resource type="BoxShape" id=21]
+extents = Vector3( 1.8, 2, 0.5 )
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 1.1, 2.24, 0.1 )
+
+[sub_resource type="AudioStreamRandomPitch" id=19]
+audio_stream = ExtResource( 4 )
+
+[sub_resource type="AudioStreamRandomPitch" id=20]
+audio_stream = ExtResource( 5 )
+
+[sub_resource type="Animation" id=14]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CSGCombiner:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "open"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CSGCombiner:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1.8, 2.1 ),
+"transitions": PoolRealArray( 0.203063, 1, 0.125, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -90, 0 ), Vector3( 0, -90, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CSGCombiner2:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1.8, 2.1 ),
+"transitions": PoolRealArray( 0.203063, 1, 0.125, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 0, 0 ) ]
+}
+
+[node name="door" type="StaticBody"]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 1.8, 0 )
+collision_mask = 5
+script = ExtResource( 3 )
+
+[node name="CSGCombiner" type="CSGCombiner" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.00031, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.00179, -0.00990534, 0.00270844 )
+height = 4.5
+depth = 0.1
+material = SubResource( 17 )
+
+[node name="CSGBox2" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.995517, 0.740094, 0.00270844 )
+operation = 2
+width = 1.7
+height = 1.0
+depth = 1.0
+material = SubResource( 18 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 9 )
+disabled = true
+
+[node name="enemydetect" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
+collision_layer = 0
+collision_mask = 3
+script = ExtResource( 6 )
+
+[node name="CollisionShape" type="CollisionShape" parent="enemydetect"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
+shape = SubResource( 21 )
+
+[node name="doordetect" type="Area" parent="."]
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="doordetect"]
+shape = SubResource( 10 )
+disabled = true
+
+[node name="sound" type="AudioStreamPlayer3D" parent="doordetect"]
+stream = SubResource( 19 )
+unit_db = 12.929
+
+[node name="sound2" type="AudioStreamPlayer3D" parent="doordetect"]
+stream = SubResource( 20 )
+unit_db = 12.929
+
+[node name="Timer" type="Timer" parent="doordetect"]
+wait_time = 2.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/close = SubResource( 14 )
+anims/open = SubResource( 15 )
+
+[node name="CSGCombiner2" type="CSGCombiner" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.99969, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="CSGCombiner2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00448, -0.00990534, 0.00270844 )
+height = 4.5
+depth = 0.1
+material = SubResource( 17 )
+
+[node name="CSGBox2" type="CSGBox" parent="CSGCombiner2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00448, 0.740094, 0.00270844 )
+operation = 2
+width = 1.7
+height = 1.0
+depth = 1.0
+material = SubResource( 18 )
+
+[connection signal="body_entered" from="enemydetect" to="enemydetect" method="_on_enemydetect_body_entered"]
+[connection signal="timeout" from="doordetect/Timer" to="doordetect" method="_on_Timer_timeout"]

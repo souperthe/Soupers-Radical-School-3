@@ -23,6 +23,7 @@ var running = false
 var stamina = 100
 var canrun = true
 var mouse = Vector2()
+var jumpheight = 0.25
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -98,7 +99,7 @@ func _physics_process(delta):
 		if canjump:
 			if is_on_floor():
 					$jump.play()
-					velocity.y = 0.35
+					velocity.y = jumpheight
 					jumping = true
 	moving = move_dir.x != 0 and move_dir.z != 0
 	move_and_slide(velocity * 60, Vector3.UP)
