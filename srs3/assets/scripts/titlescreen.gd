@@ -18,5 +18,5 @@ func _ready():
 
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://assets/scenes/first ever scene.tscn")
+	get_tree().change_scene("res://assets/scenes/testmap.tscn")
 	pass # Replace with function body.
