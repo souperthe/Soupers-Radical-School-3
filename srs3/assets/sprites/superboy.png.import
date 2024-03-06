@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/blackboard.png-c63705ccba72448ec163e850a3370c1d.s3tc.stex"
-path.etc="res://.import/blackboard.png-c63705ccba72448ec163e850a3370c1d.etc.stex"
+path.s3tc="res://.import/superboy.png-61d60de5101d1de81aa136cdab3afb7a.s3tc.stex"
+path.etc="res://.import/superboy.png-61d60de5101d1de81aa136cdab3afb7a.etc.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/sprites/blackboard.png"
-dest_files=[ "res://.import/blackboard.png-c63705ccba72448ec163e850a3370c1d.s3tc.stex", "res://.import/blackboard.png-c63705ccba72448ec163e850a3370c1d.etc.stex" ]
+source_file="res://assets/sprites/superboy.png"
+dest_files=[ "res://.import/superboy.png-61d60de5101d1de81aa136cdab3afb7a.s3tc.stex", "res://.import/superboy.png-61d60de5101d1de81aa136cdab3afb7a.etc.stex" ]
 
 [params]
 
@@ -22,7 +22,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=true
-flags/filter=false
+flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
 flags/srgb=2

@@ -7,6 +7,8 @@ var windowtitle = "Soupers Radical School 3"
 
 export var mousesens = 0.2
 var player
+var superboys = 0
+var maxsuperboys = 8
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#get_tree().get_root().set_transparent_background(true)
