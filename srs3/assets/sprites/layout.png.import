@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/checkerfloor.png-12287116183c47e143f18b26709ad3a2.s3tc.stex"
-path.etc="res://.import/checkerfloor.png-12287116183c47e143f18b26709ad3a2.etc.stex"
+path.s3tc="res://.import/layout.png-9b45e39dffb34d16d448c9a1f0bc9578.s3tc.stex"
+path.etc="res://.import/layout.png-9b45e39dffb34d16d448c9a1f0bc9578.etc.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/sprites/checkerfloor.png"
-dest_files=[ "res://.import/checkerfloor.png-12287116183c47e143f18b26709ad3a2.s3tc.stex", "res://.import/checkerfloor.png-12287116183c47e143f18b26709ad3a2.etc.stex" ]
+source_file="res://assets/sprites/layout.png"
+dest_files=[ "res://.import/layout.png-9b45e39dffb34d16d448c9a1f0bc9578.s3tc.stex", "res://.import/layout.png-9b45e39dffb34d16d448c9a1f0bc9578.etc.stex" ]
 
 [params]
 
@@ -22,7 +22,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=true
-flags/filter=false
+flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
 flags/srgb=2

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/checkerfloor.png-12287116183c47e143f18b26709ad3a2.s3tc.stex"
-path.etc="res://.import/checkerfloor.png-12287116183c47e143f18b26709ad3a2.etc.stex"
+path.s3tc="res://.import/checker2.png-aa186953fe5be5d2073b34529199400d.s3tc.stex"
+path.etc="res://.import/checker2.png-aa186953fe5be5d2073b34529199400d.etc.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/sprites/checkerfloor.png"
-dest_files=[ "res://.import/checkerfloor.png-12287116183c47e143f18b26709ad3a2.s3tc.stex", "res://.import/checkerfloor.png-12287116183c47e143f18b26709ad3a2.etc.stex" ]
+source_file="res://assets/sprites/checker2.png"
+dest_files=[ "res://.import/checker2.png-aa186953fe5be5d2073b34529199400d.s3tc.stex", "res://.import/checker2.png-aa186953fe5be5d2073b34529199400d.etc.stex" ]
 
 [params]
 
