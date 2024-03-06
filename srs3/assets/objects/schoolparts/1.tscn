@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
+[ext_resource path="res://assets/meshlibary/FUCK.2obj.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://assets/sprites/brick2.png" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/checkerfloor.png" type="Texture" id=3]
 
@@ -16,6 +17,13 @@ uv1_scale = Vector3( 4, 6, 4 )
 [sub_resource type="ConcavePolygonShape" id=11]
 data = PoolVector3Array( -2, 0.0005, 4, 2, 0.0005, 4, -2, -0.0005, 4, 2, 0.0005, 4, 2, -0.0005, 4, -2, -0.0005, 4, 2, 0.0005, -4, -2, 0.0005, -4, 2, -0.0005, -4, -2, 0.0005, -4, -2, -0.0005, -4, 2, -0.0005, -4, 2, 0.0005, 4, 2, 0.0005, -4, 2, -0.0005, 4, 2, 0.0005, -4, 2, -0.0005, -4, 2, -0.0005, 4, -2, 0.0005, -4, -2, 0.0005, 4, -2, -0.0005, -4, -2, 0.0005, 4, -2, -0.0005, 4, -2, -0.0005, -4, 2, 0.0005, 4, -2, 0.0005, 4, 2, 0.0005, -4, -2, 0.0005, 4, -2, 0.0005, -4, 2, 0.0005, -4, -2, -0.0005, 4, 2, -0.0005, 4, -2, -0.0005, -4, 2, -0.0005, 4, 2, -0.0005, -4, -2, -0.0005, -4 )
 
+[sub_resource type="SpatialMaterial" id=17]
+albedo_texture = ExtResource( 2 )
+metallic_texture = ExtResource( 3 )
+uv1_scale = Vector3( 0.35, 0.4, 0.4 )
+uv1_offset = Vector3( 1, 1, 1 )
+uv1_triplanar = true
+
 [node name="schooltiles" type="Spatial"]
 
 [node name="Wall" type="MeshInstance" parent="."]
@@ -27,4 +35,14 @@ material/0 = SubResource( 13 )
 [node name="StaticBody" type="StaticBody" parent="Wall"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Wall/StaticBody"]
+shape = SubResource( 11 )
+
+[node name="WallWindow" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = SubResource( 17 )
+
+[node name="StaticBody" type="StaticBody" parent="WallWindow"]
+
+[node name="CollisionShape" type="CollisionShape" parent="WallWindow/StaticBody"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 11 )
