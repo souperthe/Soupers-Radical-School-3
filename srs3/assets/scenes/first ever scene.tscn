@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://assets/objects/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/checkerfloor.png" type="Texture" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://assets/scripts/first ever scen2e.gd" type="Script" id=21]
 [ext_resource path="res://assets/objects/blackboard.tscn" type="PackedScene" id=22]
 [ext_resource path="res://assets/sprites/blackboard example text.png" type="Texture" id=23]
+[ext_resource path="res://assets/objects/Locker.tscn" type="PackedScene" id=24]
 
 [sub_resource type="PanoramaSky" id=20]
 radiance_size = 0
@@ -306,3 +307,21 @@ opacity = 0.79
 pixel_size = 0.0032
 shaded = true
 texture = ExtResource( 23 )
+
+[node name="Locker" parent="." instance=ExtResource( 24 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -13.5842, 0.5, -16.6397 )
+
+[node name="Locker2" parent="." instance=ExtResource( 24 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -13.5842, 0.5, -15.0775 )
+
+[node name="Locker3" parent="." instance=ExtResource( 24 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -13.5842, 0.5, -13.4798 )
+
+[node name="Locker4" parent="." instance=ExtResource( 24 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -13.5842, 0.5, -11.8931 )
+
+[node name="Locker5" parent="." instance=ExtResource( 24 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -13.5842, 0.5, -10.3309 )
+
+[node name="Locker6" parent="." instance=ExtResource( 24 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -13.5842, 0.5, -8.73317 )

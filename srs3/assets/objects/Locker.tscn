@@ -1,0 +1,29 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/meshlibary/lockerbase.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://assets/sprites/lockertex1.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/lockertex2.png" type="Texture" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.872641, 6.30986, 1 )
+
+[node name="Locker" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = ExtResource( 1 )
+material/0 = SubResource( 1 )
+material/1 = SubResource( 2 )
+material/2 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0642068, 6.29371, 0 )
+shape = SubResource( 4 )
