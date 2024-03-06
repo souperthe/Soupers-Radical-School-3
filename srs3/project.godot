@@ -160,6 +160,10 @@ window/stretch/aspect="keep"
 
 enabled=PoolStringArray( "res://addons/discord_game_sdk/plugin.cfg" )
 
+[global]
+
+texture=false
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

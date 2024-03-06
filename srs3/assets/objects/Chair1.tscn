@@ -15,7 +15,7 @@ extents = Vector3( 0.416982, 2.02221, 0.462394 )
 [node name="KinematicBody" type="KinematicBody" parent="."]
 
 [node name="Sprite3D2" type="Sprite3D" parent="KinematicBody"]
-transform = Transform( 6.84443, 0, 0, 0, -4.57893e-08, 1.04754, 0, -7.78278, -3.40197e-07, 0.0779095, 0.00666184, 0.0991493 )
+transform = Transform( 6.84443, 0, 0, 0, -4.57893e-08, 1.04754, 0, -7.78278, -3.40197e-07, 0.0779095, -0.00766655, 0.0991493 )
 modulate = Color( 0, 0, 0, 1 )
 opacity = 0.5
 pixel_size = 0.003

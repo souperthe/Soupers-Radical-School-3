@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/blackboard.obj-2fdd0b25bf6d2f278267728570b2998b.mesh"
+
+[deps]
+
+files=[ "res://.import/blackboard.obj-2fdd0b25bf6d2f278267728570b2998b.mesh" ]
+
+source_file="res://assets/meshlibary/blackboard.obj"
+dest_files=[ "res://.import/blackboard.obj-2fdd0b25bf6d2f278267728570b2998b.mesh", "res://.import/blackboard.obj-2fdd0b25bf6d2f278267728570b2998b.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
