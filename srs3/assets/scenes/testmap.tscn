@@ -288,6 +288,12 @@ transform = Transform( 1.96701e-07, 0, -1.5, 0, 1.5, 0, 1.5, 0, 1.96701e-07, 21.
 [node name="Chair" parent="decorations/DeskVariant4" instance=ExtResource( 12 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.400002, 0.0133333, -1.2 )
 
+[node name="DeskVariant5" parent="decorations" instance=ExtResource( 11 )]
+transform = Transform( 1.5, 0, 2.62268e-07, 0, 1.5, 0, -2.62268e-07, 0, 1.5, -37.8, 0, -74 )
+
+[node name="Chair" parent="decorations/DeskVariant5" instance=ExtResource( 12 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.400002, 0.0133333, -1.2 )
+
 [node name="StudenDesk10" parent="decorations" instance=ExtResource( 14 )]
 transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 16.8, 0, -32 )
 
@@ -342,6 +348,81 @@ transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 8.8, 0, -
 [node name="Chair" parent="decorations/StudenDesk18" instance=ExtResource( 12 )]
 transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
 
+[node name="Blackboard3" parent="decorations" instance=ExtResource( 10 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.85, -38, 3.44164, -78 )
+
+[node name="StudenDesk25" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, -31.6, 0, -69 )
+
+[node name="Chair" parent="decorations/StudenDesk25" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk26" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, -35.6, 0, -69 )
+
+[node name="Chair" parent="decorations/StudenDesk26" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk27" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, -39.6, 0, -69 )
+
+[node name="Chair" parent="decorations/StudenDesk27" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk28" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, -43.6, 0, -69 )
+
+[node name="Chair" parent="decorations/StudenDesk28" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk29" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, -31.6, 0, -65 )
+
+[node name="Chair" parent="decorations/StudenDesk29" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk30" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, -35.6, 0, -65 )
+
+[node name="Chair" parent="decorations/StudenDesk30" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk31" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, -39.6, 0, -65 )
+
+[node name="Chair" parent="decorations/StudenDesk31" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk32" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, -43.6, 0, -65 )
+
+[node name="Chair" parent="decorations/StudenDesk32" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk33" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, -31.6, 0, -61 )
+
+[node name="Chair" parent="decorations/StudenDesk33" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk34" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, -35.6, 0, -61 )
+
+[node name="Chair" parent="decorations/StudenDesk34" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk35" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, -39.6, 0, -61 )
+
+[node name="Chair" parent="decorations/StudenDesk35" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
+[node name="StudenDesk36" parent="decorations" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 1.19209e-07, 0, 1, 0, -1.19209e-07, 0, 1, -43.6, 0, -61 )
+
+[node name="Chair" parent="decorations/StudenDesk36" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, -0.122196, 0.02, 1.35799 )
+
 [node name="DeskVariant2" parent="decorations" instance=ExtResource( 19 )]
 transform = Transform( -6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 2.8, 0, -37.6 )
 
@@ -350,6 +431,24 @@ transform = Transform( -1.31134e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.31134e-08, 2
 
 [node name="Stool" parent="decorations" instance=ExtResource( 20 )]
 transform = Transform( 1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 4.8, 0, -38 )
+
+[node name="DeskVariant6" parent="decorations" instance=ExtResource( 19 )]
+transform = Transform( -1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, -28.8, 0, -50.7449 )
+
+[node name="computer2" parent="decorations" instance=ExtResource( 17 )]
+transform = Transform( -0.3, 0, -4.52987e-08, 0, 0.3, 0, 4.52987e-08, 0, -0.3, -28.6543, 1.5165, -50.7847 )
+
+[node name="Stool2" parent="decorations" instance=ExtResource( 20 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1, 0, -1.5, 0, -6.55671e-08, -28.8, 0, -52.7449 )
+
+[node name="DeskVariant7" parent="decorations" instance=ExtResource( 19 )]
+transform = Transform( -1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, -33.8, 0, -50.7449 )
+
+[node name="computer3" parent="decorations" instance=ExtResource( 17 )]
+transform = Transform( -0.3, 0, -4.52987e-08, 0, 0.3, 0, 4.52987e-08, 0, -0.3, -33.6543, 1.5165, -50.7847 )
+
+[node name="Stool3" parent="decorations" instance=ExtResource( 20 )]
+transform = Transform( -6.55671e-08, 0, 1.5, 0, 1, 0, -1.5, 0, -6.55671e-08, -33.8, 0, -52.7449 )
 
 [node name="Sprite3D" type="Sprite3D" parent="decorations"]
 transform = Transform( -4.37114e-08, 0, 1, 0.0871558, 0.996195, 3.8097e-09, -0.996195, 0.0871558, -4.35451e-08, 2.01, 2.8, -36.4 )
