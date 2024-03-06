@@ -10,7 +10,6 @@
 [ext_resource path="res://assets/sound/sfx_run.wav" type="AudioStream" id=8]
 
 [sub_resource type="CylinderShape" id=1]
-height = 3.0
 radius = 0.5
 
 [sub_resource type="AudioStreamRandomPitch" id=2]
@@ -31,11 +30,11 @@ visible = false
 [node name="HUD" parent="." instance=ExtResource( 2 )]
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 shape = SubResource( 1 )
 
 [node name="head" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.96788, 0 )
 
 [node name="Camera" type="Camera" parent="head"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0439639, 0 )
