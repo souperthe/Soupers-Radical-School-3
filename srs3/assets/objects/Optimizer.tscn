@@ -9,3 +9,5 @@ script = ExtResource( 1 )
 
 [connection signal="camera_entered" from="VisibilityNotifier" to="." method="_on_VisibilityNotifier_camera_entered"]
 [connection signal="camera_exited" from="VisibilityNotifier" to="." method="_on_VisibilityNotifier_camera_exited"]
+[connection signal="screen_entered" from="VisibilityNotifier" to="." method="_on_VisibilityNotifier_screen_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier" to="." method="_on_VisibilityNotifier_screen_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://assets/scripts/HUD.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/handhud/idle.png" type="Texture" id=2]
@@ -10,6 +10,13 @@
 [ext_resource path="res://assets/sprites/checker.png" type="Texture" id=8]
 [ext_resource path="res://assets/sprites/HUD/superboy counter.png" type="Texture" id=9]
 [ext_resource path="res://assets/scripts/superboycounter.gd" type="Script" id=10]
+[ext_resource path="res://assets/sprites/HUD/items.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/HUD/static_2.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/HUD/static_1.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/HUD/static_4.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/blank.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/HUD/static_3.png" type="Texture" id=16]
+[ext_resource path="res://assets/scripts/items.gd" type="Script" id=17]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -78,6 +85,14 @@ use_mipmaps = true
 use_filter = true
 extra_spacing_char = -1
 font_data = ExtResource( 6 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 12 ), ExtResource( 16 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "flash",
+"speed": 24.0
+} ]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -177,4 +192,62 @@ custom_fonts/normal_font = SubResource( 7 )
 bbcode_enabled = true
 bbcode_text = "[center][wave]0/8"
 text = "0/8"
+scroll_active = false
+
+[node name="items" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -353.0
+margin_bottom = 162.0
+script = ExtResource( 17 )
+
+[node name="TextureRect" type="TextureRect" parent="items"]
+modulate = Color( 0.247059, 0.0470588, 0, 1 )
+material = SubResource( 3 )
+margin_left = 148.0
+margin_top = -7.0
+margin_right = 358.0
+margin_bottom = 75.0
+texture = ExtResource( 8 )
+stretch_mode = 2
+
+[node name="item3static" type="AnimatedSprite" parent="items"]
+position = Vector2( 320, 35 )
+scale = Vector2( 0.133333, 0.211111 )
+frames = SubResource( 8 )
+animation = "flash"
+frame = 4
+playing = true
+
+[node name="item2static" type="AnimatedSprite" parent="items"]
+position = Vector2( 248, 35 )
+scale = Vector2( 0.133333, 0.211111 )
+frames = SubResource( 8 )
+animation = "flash"
+frame = 4
+playing = true
+
+[node name="item1static" type="AnimatedSprite" parent="items"]
+position = Vector2( 182, 35 )
+scale = Vector2( 0.133333, 0.211111 )
+frames = SubResource( 8 )
+animation = "flash"
+frame = 4
+playing = true
+
+[node name="Items" type="Sprite" parent="items"]
+position = Vector2( 272, 9 )
+scale = Vector2( 1.4, 1.4 )
+texture = ExtResource( 11 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="items"]
+margin_left = 148.0
+margin_top = 80.0
+margin_right = 354.0
+margin_bottom = 138.0
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/normal_font = SubResource( 7 )
+bbcode_enabled = true
+bbcode_text = "[wave]idfk"
+text = "idfk"
 scroll_active = false

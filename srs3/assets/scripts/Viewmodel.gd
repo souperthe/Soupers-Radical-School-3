@@ -21,7 +21,7 @@ onready var x = position.y
 func _ready():
 	pass # Replace with function body.
 
-func _process(delta):
+func _physics_process(delta):
 	if moving:
 		position.x = ogposition.x + sin(timer*0.1)*35
 		position.y = ogposition.y + sin(timery*frequency)*amplitude

@@ -11,3 +11,12 @@ margin_left = 106.0
 margin_top = 168.0
 margin_right = 106.0
 margin_bottom = 168.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="fps" type="Label" parent="CanvasLayer"]
+margin_top = 706.0
+margin_right = 40.0
+margin_bottom = 720.0
+text = "60"

@@ -7,7 +7,7 @@
 [ext_resource path="res://assets/sound/mus_floor1.wav" type="AudioStream" id=5]
 [ext_resource path="res://assets/sprites/souper.png" type="Texture" id=6]
 [ext_resource path="res://assets/sprites/circle.png" type="Texture" id=7]
-[ext_resource path="res://assets/meshlibary/wallsnew111.tres" type="MeshLibrary" id=8]
+[ext_resource path="res://assets/meshlibary/wallsreal.tres" type="MeshLibrary" id=8]
 [ext_resource path="res://assets/objects/schoolparts/doorwithwall.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/objects/blackboard.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/objects/Desk3.tscn" type="PackedScene" id=11]
@@ -38,6 +38,7 @@ fog_enabled = true
 fog_color = Color( 0, 0, 0, 1 )
 fog_sun_color = Color( 1, 1, 1, 1 )
 fog_depth_begin = 0.0
+fog_depth_end = 200.0
 fog_height_enabled = true
 fog_height_min = 0.2
 fog_height_max = 80.0

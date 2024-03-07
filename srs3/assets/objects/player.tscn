@@ -46,6 +46,11 @@ cast_to = Vector3( 0, 0, -7 )
 collide_with_areas = true
 script = ExtResource( 6 )
 
+[node name="VisibilityEnabler" type="VisibilityEnabler" parent="head"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.81222 )
+aabb = AABB( -6.15455, -2.4083, -5.4381, 12.3091, 4.8166, 10.8762 )
+max_distance = 1.0
+
 [node name="jump" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
 stream = SubResource( 2 )
