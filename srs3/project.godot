@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/discord_game_sdk/example/lobby/chat_message.gd"
 }, {
-"base": "",
+"base": "Reference",
 "class": "DiscordActivity",
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_activity.gdns"
@@ -49,7 +49,7 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_core.gdns"
 }, {
-"base": "",
+"base": "Reference",
 "class": "DiscordLobby",
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_lobby.gdns"
@@ -59,7 +59,7 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_lobby_manager.gdns"
 }, {
-"base": "",
+"base": "Reference",
 "class": "DiscordLobbyTransaction",
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_lobby_transaction.gdns"
@@ -69,7 +69,7 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_overlay_manager.gdns"
 }, {
-"base": "",
+"base": "Reference",
 "class": "DiscordPartySize",
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_party_size.gdns"
@@ -79,7 +79,7 @@ _global_script_classes=[ {
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_result.gdns"
 }, {
-"base": "",
+"base": "Reference",
 "class": "DiscordUser",
 "language": "NativeScript",
 "path": "res://addons/discord_game_sdk/discord_user.gdns"
