@@ -19,4 +19,6 @@ func _ready():
 
 func _process(delta):
 	$CanvasLayer/fps.text = str(Engine.get_frames_per_second())
+	if player:
+		$CanvasLayer/fps2.text = str(player.translation)
 	pass
