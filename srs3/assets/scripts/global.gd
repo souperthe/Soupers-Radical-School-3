@@ -17,8 +17,17 @@ func _ready():
 	pass # Replace with function body.
 
 
+func reset():
+	superboys = 0
 func _process(delta):
 	$CanvasLayer/fps.text = str(Engine.get_frames_per_second())
-	if player:
-		$CanvasLayer/fps2.text = str(player.translation)
+	#if player:
+		#$CanvasLayer/fps2.text = str(player.translation)
 	pass
+
+func scorevisual(number):
+	var whiteflash = preload("res://assets/objects/score.tscn")
+	var ghost: CanvasLayer = whiteflash.instance()
+	#roomhandle.currentscene.add_child(ghost)
+	get_tree().get_current_scene().add_child(ghost)
+	ghost.score = number

@@ -3,16 +3,18 @@
 importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/stones.png-856630d6ecdb2a48797988d81ba01291.s3tc.stex"
+path.etc2="res://.import/stones.png-856630d6ecdb2a48797988d81ba01291.etc2.stex"
 path.etc="res://.import/stones.png-856630d6ecdb2a48797988d81ba01291.etc.stex"
+path.pvrtc="res://.import/stones.png-856630d6ecdb2a48797988d81ba01291.pvrtc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
+"imported_formats": [ "bptc", "s3tc", "etc2", "etc", "pvrtc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/sprites/stones.png"
-dest_files=[ "res://.import/stones.png-856630d6ecdb2a48797988d81ba01291.s3tc.stex", "res://.import/stones.png-856630d6ecdb2a48797988d81ba01291.etc.stex" ]
+dest_files=[ "res://.import/stones.png-856630d6ecdb2a48797988d81ba01291.s3tc.stex", "res://.import/stones.png-856630d6ecdb2a48797988d81ba01291.etc2.stex", "res://.import/stones.png-856630d6ecdb2a48797988d81ba01291.etc.stex", "res://.import/stones.png-856630d6ecdb2a48797988d81ba01291.pvrtc.stex" ]
 
 [params]
 

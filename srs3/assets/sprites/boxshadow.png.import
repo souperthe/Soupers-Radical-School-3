@@ -3,16 +3,18 @@
 importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/boxshadow.png-fc3960416d799c0faa3e4ba5b6a04aaf.s3tc.stex"
+path.etc2="res://.import/boxshadow.png-fc3960416d799c0faa3e4ba5b6a04aaf.etc2.stex"
 path.etc="res://.import/boxshadow.png-fc3960416d799c0faa3e4ba5b6a04aaf.etc.stex"
+path.pvrtc="res://.import/boxshadow.png-fc3960416d799c0faa3e4ba5b6a04aaf.pvrtc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
+"imported_formats": [ "bptc", "s3tc", "etc2", "etc", "pvrtc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/sprites/boxshadow.png"
-dest_files=[ "res://.import/boxshadow.png-fc3960416d799c0faa3e4ba5b6a04aaf.s3tc.stex", "res://.import/boxshadow.png-fc3960416d799c0faa3e4ba5b6a04aaf.etc.stex" ]
+dest_files=[ "res://.import/boxshadow.png-fc3960416d799c0faa3e4ba5b6a04aaf.s3tc.stex", "res://.import/boxshadow.png-fc3960416d799c0faa3e4ba5b6a04aaf.etc2.stex", "res://.import/boxshadow.png-fc3960416d799c0faa3e4ba5b6a04aaf.etc.stex", "res://.import/boxshadow.png-fc3960416d799c0faa3e4ba5b6a04aaf.pvrtc.stex" ]
 
 [params]
 
@@ -25,7 +27,7 @@ flags/repeat=true
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

@@ -39,6 +39,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.96788, 0 )
 [node name="Camera" type="Camera" parent="head"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0439639, 0 )
 current = true
+fov = 87.1
 
 [node name="InteractRay" type="RayCast" parent="head"]
 enabled = true

@@ -8,6 +8,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AudioStreamPlayer.play()
 	get_tree().paused = false
 	pass # Replace with function body.
 
@@ -18,5 +19,6 @@ func _ready():
 
 
 func _on_Button_pressed():
+	global.reset()
 	get_tree().change_scene("res://assets/scenes/testmap.tscn")
 	pass # Replace with function body.

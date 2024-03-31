@@ -3,16 +3,18 @@
 importer="texture"
 type="StreamTexture"
 path.s3tc="res://.import/icon.png-9a25435582839ca3cd8bb514b597c2d9.s3tc.stex"
+path.etc2="res://.import/icon.png-9a25435582839ca3cd8bb514b597c2d9.etc2.stex"
 path.etc="res://.import/icon.png-9a25435582839ca3cd8bb514b597c2d9.etc.stex"
+path.pvrtc="res://.import/icon.png-9a25435582839ca3cd8bb514b597c2d9.pvrtc.stex"
 metadata={
-"imported_formats": [ "s3tc", "etc" ],
+"imported_formats": [ "bptc", "s3tc", "etc2", "etc", "pvrtc" ],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/sprites/icon.png"
-dest_files=[ "res://.import/icon.png-9a25435582839ca3cd8bb514b597c2d9.s3tc.stex", "res://.import/icon.png-9a25435582839ca3cd8bb514b597c2d9.etc.stex" ]
+dest_files=[ "res://.import/icon.png-9a25435582839ca3cd8bb514b597c2d9.s3tc.stex", "res://.import/icon.png-9a25435582839ca3cd8bb514b597c2d9.etc2.stex", "res://.import/icon.png-9a25435582839ca3cd8bb514b597c2d9.etc.stex", "res://.import/icon.png-9a25435582839ca3cd8bb514b597c2d9.pvrtc.stex" ]
 
 [params]
 

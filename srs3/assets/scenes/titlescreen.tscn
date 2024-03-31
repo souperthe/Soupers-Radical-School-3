@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/fonts/COMIC.TTF" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/scripts/titlescreen.gd" type="Script" id=2]
+[ext_resource path="res://assets/sound/mus_intro.wav" type="AudioStream" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 37
@@ -44,5 +45,8 @@ margin_top = 480.0
 margin_right = 629.0
 margin_bottom = 547.0
 text = "play"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
