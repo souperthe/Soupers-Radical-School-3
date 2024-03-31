@@ -14,6 +14,7 @@ func _process(delta):
 	gamestarted = !global.superboys > 1
 	$map/doorwithwall4.locked = gamestarted
 	$map/doorwithwall3.locked = gamestarted
+	$map/doorwithwall5.locked = gamestarted
 	if !gamestarted:
 		if !a:
 			$AudioStreamPlayer2D.stop()
