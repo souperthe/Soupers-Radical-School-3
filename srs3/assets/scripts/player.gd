@@ -43,12 +43,12 @@ func _process(delta):
 
 func _physics_process(delta):
 	global.player = self
-	$HUD/crosshair.visible = $head/InteractRay.clickable
-	$HUD/sprint.stamina = stamina
-	$HUD/Viewmodel.moving = moving
-	$HUD/Viewmodel.canrun = canrun
-	$HUD/Viewmodel.running = running
-	$HUD/sprint.running = running
+	$HUD/head/crosshair.visible = $head/InteractRay.clickable
+	$HUD/head/sprint.stamina = stamina
+	$HUD/head/viewmodel/Viewmodel.moving = moving
+	$HUD/head/viewmodel/Viewmodel.canrun = canrun
+	$HUD/head/viewmodel/Viewmodel.running = running
+	$HUD/head/sprint.running = running
 	grounded = is_on_floor()
 	head.rotation_degrees.x = look_rot.x
 	rotation_degrees.y = look_rot.y

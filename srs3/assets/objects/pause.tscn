@@ -114,10 +114,11 @@ bus = "SFX"
 
 [node name="pausestuff" type="Control" parent="."]
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-margin_top = 100.0
-margin_bottom = 100.0
+anchor_bottom = 0.5
+margin_top = -270.0
+margin_bottom = 270.0
 script = ExtResource( 5 )
 
 [node name="TextureRect2" type="TextureRect" parent="pausestuff"]

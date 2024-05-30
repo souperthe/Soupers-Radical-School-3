@@ -151,11 +151,11 @@ settings/fps/force_fps=60
 [display]
 
 window/size/width=960
-window/size/height=720
+window/size/height=540
 window/vsync/vsync_via_compositor=true
 mouse_cursor/custom_image="res://assets/sprites/curser.png"
 window/stretch/mode="2d"
-window/stretch/aspect="keep"
+window/stretch/shrink=0.8
 
 [editor_plugins]
 

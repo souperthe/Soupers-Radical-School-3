@@ -23,17 +23,17 @@ func _process(_delta):
 		$CanvasLayer.visible = false
 	if !OS.window_fullscreen:
 		$CanvasLayer.visible = true
-	$CanvasLayer/options/HBoxContainer/WindowName.text = global.windowtitle
+	$CanvasLayer/Control/options/HBoxContainer/WindowName.text = global.windowtitle
 	OS.set_window_title(str(global.windowtitle))
 	if moving:
 		var mouse_delta = Vector2(get_viewport().get_mouse_position())
 		OS.window_position += mouse_delta - mousestart
 	if optionon:
-		$CanvasLayer/options.rect_position.y = lerp($CanvasLayer/options.rect_position.y, 0, lerpamount)
-		$CanvasLayer/Line2D.modulate.a8 = lerp($CanvasLayer/Line2D.modulate.a8, 255, lerpamount)
+		$CanvasLayer/Control/options.rect_position.y = lerp($CanvasLayer/Control/options.rect_position.y, 0, lerpamount)
+		$CanvasLayer/Control/Line2D.modulate.a8 = lerp($CanvasLayer/Control/Line2D.modulate.a8, 255, lerpamount)
 	if !optionon:
-		$CanvasLayer/options.rect_position.y = lerp($CanvasLayer/options.rect_position.y, -30, lerpamount)
-		$CanvasLayer/Line2D.modulate.a8 = lerp($CanvasLayer/Line2D.modulate.a8, 0, lerpamount)
+		$CanvasLayer/Control/options.rect_position.y = lerp($CanvasLayer/Control/options.rect_position.y, -30, lerpamount)
+		$CanvasLayer/Control/Line2D.modulate.a8 = lerp($CanvasLayer/Control/Line2D.modulate.a8, 0, lerpamount)
 	pass
 
 

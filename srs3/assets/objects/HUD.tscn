@@ -18,14 +18,6 @@
 [ext_resource path="res://assets/sprites/HUD/static_3.png" type="Texture" id=16]
 [ext_resource path="res://assets/scripts/items.gd" type="Script" id=17]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "idle",
-"speed": 5.0
-} ]
-
 [sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
 
@@ -63,18 +55,19 @@ font_data = ExtResource( 6 )
 
 [sub_resource type="Animation" id=6]
 resource_name = "flash"
+length = 0.6
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("RichTextLabel:modulate")
-tracks/0/interp = 0
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="DynamicFont" id=7]
@@ -94,35 +87,33 @@ animations = [ {
 "speed": 24.0
 } ]
 
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+} ]
+
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
 
-[node name="Viewmodel" type="Node2D" parent="."]
-position = Vector2( 738, 608 )
-script = ExtResource( 4 )
+[node name="head" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
 
-[node name="sprite" type="AnimatedSprite" parent="Viewmodel"]
-scale = Vector2( 1.5, 1.5 )
-frames = SubResource( 1 )
-animation = "idle"
-
-[node name="crosshair" type="Sprite" parent="."]
-self_modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 480, 360 )
-texture = ExtResource( 3 )
-
-[node name="sprint" type="Control" parent="."]
+[node name="sprint" type="Control" parent="head"]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -300.0
 margin_right = 300.0
 script = ExtResource( 7 )
 
-[node name="Node2D" type="Node2D" parent="sprint"]
-position = Vector2( 123, 450 )
+[node name="Node2D" type="Node2D" parent="head/sprint"]
+position = Vector2( 171, 218 )
 scale = Vector2( 1.5, 1.5 )
 
-[node name="TextureRect" type="TextureRect" parent="sprint/Node2D"]
+[node name="TextureRect" type="TextureRect" parent="head/sprint/Node2D"]
 modulate = Color( 0.247059, 0.0470588, 0, 1 )
 material = SubResource( 3 )
 margin_left = -65.5
@@ -132,11 +123,11 @@ margin_bottom = 25.0
 texture = ExtResource( 8 )
 stretch_mode = 2
 
-[node name="SprintTv" type="Sprite" parent="sprint/Node2D"]
+[node name="SprintTv" type="Sprite" parent="head/sprint/Node2D"]
 position = Vector2( -1.5, 0 )
 texture = ExtResource( 5 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="sprint/Node2D"]
+[node name="RichTextLabel" type="RichTextLabel" parent="head/sprint/Node2D"]
 margin_left = -61.5
 margin_top = -20.0
 margin_right = 53.5
@@ -148,26 +139,27 @@ bbcode_text = "[center][shake]100%"
 text = "100%"
 scroll_active = false
 
-[node name="RichTextLabel" type="RichTextLabel" parent="sprint"]
-margin_top = 252.0
-margin_right = 960.0
-margin_bottom = 288.0
+[node name="RichTextLabel" type="RichTextLabel" parent="head/sprint"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -43.0
+margin_right = 352.0
 custom_colors/default_color = Color( 1, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 5 )
 bbcode_enabled = true
-bbcode_text = "[center][shake rate=100.0 level=20 connected=1]YOU NEED REST[/shake]"
+bbcode_text = "[center][shake rate=100.0 level=30 connected=1]YOU NEED REST[/shake]"
 text = "YOU NEED REST"
 scroll_active = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="sprint"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="head/sprint"]
 anims/flash = SubResource( 6 )
 
-[node name="superboycounter" type="Control" parent="."]
+[node name="superboycounter" type="Control" parent="head"]
 margin_right = 251.0
 margin_bottom = 197.0
 script = ExtResource( 10 )
 
-[node name="TextureRect" type="TextureRect" parent="superboycounter"]
+[node name="TextureRect" type="TextureRect" parent="head/superboycounter"]
 modulate = Color( 0.247059, 0.0470588, 0, 1 )
 material = SubResource( 3 )
 margin_left = 25.0
@@ -177,12 +169,12 @@ margin_bottom = 126.0
 texture = ExtResource( 8 )
 stretch_mode = 2
 
-[node name="SuperboyCounter" type="Sprite" parent="superboycounter"]
+[node name="SuperboyCounter" type="Sprite" parent="head/superboycounter"]
 position = Vector2( 75, 49 )
 scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 9 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="superboycounter"]
+[node name="RichTextLabel" type="RichTextLabel" parent="head/superboycounter"]
 margin_left = 26.0
 margin_top = 56.0
 margin_right = 129.0
@@ -194,14 +186,14 @@ bbcode_text = "[center][wave]0/8"
 text = "0/8"
 scroll_active = false
 
-[node name="items" type="Control" parent="."]
+[node name="items" type="Control" parent="head"]
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -353.0
 margin_bottom = 162.0
 script = ExtResource( 17 )
 
-[node name="TextureRect" type="TextureRect" parent="items"]
+[node name="TextureRect" type="TextureRect" parent="head/items"]
 modulate = Color( 0.247059, 0.0470588, 0, 1 )
 material = SubResource( 3 )
 margin_left = 148.0
@@ -211,7 +203,7 @@ margin_bottom = 75.0
 texture = ExtResource( 8 )
 stretch_mode = 2
 
-[node name="item3static" type="AnimatedSprite" parent="items"]
+[node name="item3static" type="AnimatedSprite" parent="head/items"]
 position = Vector2( 320, 35 )
 scale = Vector2( 0.133333, 0.211111 )
 frames = SubResource( 8 )
@@ -219,7 +211,7 @@ animation = "flash"
 frame = 4
 playing = true
 
-[node name="item2static" type="AnimatedSprite" parent="items"]
+[node name="item2static" type="AnimatedSprite" parent="head/items"]
 position = Vector2( 248, 35 )
 scale = Vector2( 0.133333, 0.211111 )
 frames = SubResource( 8 )
@@ -227,7 +219,7 @@ animation = "flash"
 frame = 4
 playing = true
 
-[node name="item1static" type="AnimatedSprite" parent="items"]
+[node name="item1static" type="AnimatedSprite" parent="head/items"]
 position = Vector2( 182, 35 )
 scale = Vector2( 0.133333, 0.211111 )
 frames = SubResource( 8 )
@@ -235,12 +227,12 @@ animation = "flash"
 frame = 4
 playing = true
 
-[node name="Items" type="Sprite" parent="items"]
+[node name="Items" type="Sprite" parent="head/items"]
 position = Vector2( 272, 9 )
 scale = Vector2( 1.4, 1.4 )
 texture = ExtResource( 11 )
 
-[node name="RichTextLabel" type="RichTextLabel" parent="items"]
+[node name="RichTextLabel" type="RichTextLabel" parent="head/items"]
 margin_left = 148.0
 margin_top = 80.0
 margin_right = 354.0
@@ -251,3 +243,33 @@ bbcode_enabled = true
 bbcode_text = "[wave]idfk"
 text = "idfk"
 scroll_active = false
+
+[node name="viewmodel" type="Control" parent="head"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -40.0
+
+[node name="Viewmodel" type="Node2D" parent="head/viewmodel"]
+position = Vector2( -110, -72 )
+script = ExtResource( 4 )
+
+[node name="sprite" type="AnimatedSprite" parent="head/viewmodel/Viewmodel"]
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 1 )
+animation = "idle"
+
+[node name="crosshair" type="TextureRect" parent="head"]
+modulate = Color( 0.247059, 0.0470588, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -15.0
+margin_top = -15.0
+margin_right = 15.0
+margin_bottom = 15.0
+texture = ExtResource( 3 )
+stretch_mode = 1

@@ -12,6 +12,8 @@
 resource_name = "computerscript"
 script/source = "extends Spatial
 
+var color = Color()
+
 var colors = [ColorN(\"red\", 1),
 		  ColorN(\"blue\", 1),
 		  ColorN(\"green\", 1),
@@ -20,8 +22,11 @@ var colors = [ColorN(\"red\", 1),
 		
 func _ready():
 	$Timer.start()
+	
+func _process(delta):
+	$Sprite3D.modulate = lerp($Sprite3D.modulate, color, 1 * delta)
 func _on_Timer_timeout():
-	$Sprite3D.modulate = colors[randi() % colors.size()]
+	color = colors[randi() % colors.size()]
 	pass # Replace with function body.
 "
 
