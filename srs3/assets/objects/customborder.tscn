@@ -127,7 +127,7 @@ text = "X"
 flat = true
 
 [node name="Line2D" type="Line2D" parent="CanvasLayer/Control"]
-points = PoolVector2Array( 0, 0, 960, 0, 960, 720, 0, 720, 0, 0 )
+points = PoolVector2Array( 0, 0, 960, 0, 960, 540, 0, 540, 0, 0 )
 width = 3.0
 default_color = Color( 1, 1, 1, 1 )
 
